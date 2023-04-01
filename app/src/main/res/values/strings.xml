@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="name">Бусинка</string>
+    <string name="vocation">Android-разработчик</string>
+    <string name="phone">+11(123)456–65–76</string>
+    <string name="email">busy@dev.com</string>
+    <string name="share">\@BusyDev</string>
+</resources>
