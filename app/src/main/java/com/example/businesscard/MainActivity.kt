@@ -3,10 +3,13 @@ package com.example.businesscard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -37,11 +40,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BusinessCardTheme {
-                    BusinessCard()
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    BusinessCardTheme {
+                        BusinessCard()
+                    }
                 }
             }
         }
     }
+}
 
 @Composable
 fun BusinessCard() {
@@ -66,7 +74,7 @@ fun PersonCard(
     name: String = stringResource(id = R.string.name),
     vocation: String = stringResource(id = R.string.vocation)
 ) {
-    val image = painterResource(id = R.drawable.busy)
+    val image = painterResource(id = R.drawable.new_busy_cut)
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
@@ -74,11 +82,15 @@ fun PersonCard(
     ) {
         Image(
             modifier = Modifier
-                .size(350.dp)
-                .clip(RoundedCornerShape(1f)),
+                .size(270.dp)
+                .border(
+                    BorderStroke(4.dp, Color(0xFF380187)),
+                    CircleShape
+                )
+                .clip(CircleShape),
             painter = image,
             contentDescription = name,
-            contentScale = ContentScale.FillHeight
+            contentScale = ContentScale.Crop
         )
         Text(
             text = name,
@@ -94,7 +106,7 @@ fun PersonCard(
         Text(
             text = vocation,
             textAlign = TextAlign.Justify,
-            color = Color(0xFFff003c),
+            color = Color(0xFF7f0001),
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.SemiBold,
             fontSize = 20.sp
