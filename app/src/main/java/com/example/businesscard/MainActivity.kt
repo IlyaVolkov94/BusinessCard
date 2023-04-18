@@ -53,18 +53,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCard() {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = Color(0xFF99a3dd)
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            PersonCard()
-            InformCard()
-        }
+        PersonCard()
+        InformCard()
     }
 }
 
